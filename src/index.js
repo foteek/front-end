@@ -16,7 +16,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 // 2
 const httpLink = createHttpLink({
   uri:
-    "mongodb+srv://foteekofficial:<password>@foteekcluster-nv3fj.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb+srv://foteekofficial:H8pexn32lq$@foteekcluster-nv3fj.mongodb.net/test?retryWrites=true&w=majority"
 });
 
 // 2.5
