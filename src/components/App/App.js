@@ -1,26 +1,27 @@
-import React from "react";
-import logo from "../../logo.svg";
-import "./App.css";
+import React, { Component } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import { Route, Link } from "react-router-dom";
+import Users from "../User.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Login from "../Login/Login.js";
+
+const client = new ApolloClient({
+  uri: "https://foteek-backend.herokuapp.com/users"
+});
+
+class App extends Component {
+  render() {
+    return (
+      <ApolloProvider client={client}>
+        <div>
+          List of users being displayed from the BE
+          <Users />
+          <Link to="/login">Login</Link>
+          <Route path="/login" component={Login} />
+        </div>
+      </ApolloProvider>
+    );
+  }
 }
-
 export default App;
