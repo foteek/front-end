@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is the Front-End repo of Foteek
 
-Master Branch Deploy Link : https://foteek-develop-ac0c27.netlify.com/
+Master Branch Deploy Link : https://front-end.foteekofficial.now.sh/
 
 Staging (Develop) Branch Deploy Link : https://foteek-develop-ac0c27.netlify.com/
 
