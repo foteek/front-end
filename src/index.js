@@ -13,7 +13,6 @@ import App from "./App";
 import Login from "./components/Auth/Login";
 
 import Register from "./components/Auth/Register";
-import withSession from "./components/withSession";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 

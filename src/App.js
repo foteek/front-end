@@ -6,13 +6,15 @@ import { ApolloProvider } from "react-apollo";
 const client = new ApolloClient({
   uri: "https://foteek-backend.herokuapp.com/users"
 });
-
+// again
 class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <div>xx</div>
-      </ApolloProvider>
+      <div className="App">
+        <ApolloProvider client={client}>
+          <div>xx</div>
+        </ApolloProvider>
+      </div>
     );
   }
 }
