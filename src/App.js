@@ -6,7 +6,7 @@ import { ApolloProvider } from "react-apollo";
 const client = new ApolloClient({
   uri: "https://foteek-backend.herokuapp.com/users"
 });
-// again
+// last try for the night
 class App extends Component {
   render() {
     return (
