@@ -4,6 +4,8 @@ import { Mutation } from "react-apollo";
 import Error from "../../components/Auth/Error";
 import { SIGNIN_USER } from "../../queries";
 
+import "../../App.css";
+
 const intitialState = {
   username: "",
   password: ""
