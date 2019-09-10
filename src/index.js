@@ -7,7 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import "./index.css";
-// change
+// change the import
 import App from "./App";
 
 import Login from "./components/Auth/Login";
