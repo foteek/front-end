@@ -1,12 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import "./index.css";
+// change the import
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Login from "./components/Auth/Login";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import Register from "./components/Auth/Register";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+
+const client = new ApolloClient({
+  uri: "https://foteek-backend.herokuapp.com/users",
+  fetchOptions: {
+    credentials: "include"
+  },
+  request: operation => {
+    const token = localStorage.getItem("token");
+    operation.setContext({
+      headers: {
+        authorization: token
+      }
+    });
+  },
+
+  onError: ({ networkError }) => {
+    if (networkError) {
+      console.log("Network Error", networkError);
+    }
+  }
+});
+
+const Root = () => (
+  <Router>
+    <Switch>
+      <Route path="/" exact component={App} />
+      <Route path="/signin" component={Login} />
+      <Route path="/signup" component={Register} />
+      <Redirect to="/" />
+    </Switch>
+  </Router>
+);
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <Root />
+  </ApolloProvider>,
+  document.getElementById("root")
+);
